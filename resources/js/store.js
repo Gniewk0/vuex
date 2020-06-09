@@ -7,6 +7,9 @@ export default {
         minecart: 0,
         mincartcost: 100,
         minecartvalue: 1,
+        miner: 0,
+        minercost: 1000,
+        minervalue: 20,
     },
     mutations: {
         increment (state) {
@@ -35,6 +38,16 @@ export default {
             state.count = state.count - state.mincartcost;
             state.mincartcost = state.mincartcost + (state.mincartcost*0.2);
         },
+        minercounter (state) {
+            state.count = state.count + state.minervalue;
+        },
+        mincercart (state) {
+            state.miner++;
+        },
+        buyminer (state) {
+            state.count = state.count - state.minercost;
+            state.minercost = state.minercost + (state.minercost*0.2);
+        },
 
     },
 
@@ -53,6 +66,14 @@ export default {
             context.commit('minecart');
             setInterval(()=>{
                 context.commit('minecartcounter');
+            }, 1000)
+        },
+        minermining (context) {
+            context.commit('stop');
+            context.commit('buyminer');
+            context.commit('miner');
+            setInterval(()=>{
+                context.commit('minercounter');
             }, 1000)
         }
     },

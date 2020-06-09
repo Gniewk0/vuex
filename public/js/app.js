@@ -1929,6 +1929,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['count'])),
@@ -1965,10 +1968,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['count'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['pickcost'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['mincartcost'])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['pickmaining'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['minecartmining']))
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['count'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['pickcost'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['mincartcost'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['minercost'])),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['pickmaining'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['minecartmining'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['minermining']))
 });
 
 /***/ }),
@@ -1996,9 +2014,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['pick'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['minecart']))
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['pick'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['minecart'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['miner']))
 });
 
 /***/ }),
@@ -37546,12 +37599,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h6", [_vm._v("Coal mained")]),
+  return _c("div", { staticClass: "m-auto" }, [
+    _c("h6", { staticClass: "d-flex justify-content-center text-light" }, [
+      _vm._v("Coal mained")
+    ]),
     _vm._v(" "),
-    _c("h2", [_vm._v(_vm._s(_vm.count.toFixed(2)))]),
+    _c("div", [
+      _c("h2", { staticClass: "d-flex justify-content-center text-light" }, [
+        _vm._v(_vm._s(_vm.count.toFixed(2)))
+      ])
+    ]),
     _vm._v(" "),
-    _c("div", {}, [
+    _c("div", { staticClass: "d-flex justify-content-center" }, [
       _c(
         "button",
         { staticClass: "btn btn-secondary", on: { click: _vm.increment } },
@@ -37614,40 +37673,77 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-auto" }, [
-    _c("div", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v(" Cost of Pick: " + _vm._s(_vm.pickcost.toFixed(2)) + " ")
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col pt-2" }, [
+        _c("label", { staticClass: "mt-1 text-light" }, [
+          _vm._v(" Cost of Pick: " + _vm._s(_vm.pickcost.toFixed(2)) + " ")
+        ])
       ]),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { disabled: _vm.count < _vm.pickcost ? "" : _vm.disabled },
-          on: { click: _vm.pickmaining }
-        },
-        [_vm._v("Buy")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v(" Cost of Minecart: " + _vm._s(_vm.mincartcost.toFixed(2)) + " ")
+      _c("div", { staticClass: "col pt-2" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary float-right",
+            attrs: {
+              disabled: _vm.count < _vm.pickcost ? "" : _vm.disabled,
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: "Pick gain 1 coal per 10 secounds"
+            },
+            on: { click: _vm.pickmaining }
+          },
+          [_vm._v("\n                Buy\n            ")]
+        )
       ]),
       _vm._v(" "),
-      _c("br"),
+      _c("div", { staticClass: "w-100" }),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { disabled: _vm.count < _vm.mincartcost ? "" : _vm.disabled },
-          on: { click: _vm.minecartmining }
-        },
-        [_vm._v("Buy")]
-      )
+      _c("div", { staticClass: "col pt-2" }, [
+        _c("label", { staticClass: "mt-1 text-light" }, [
+          _vm._v(
+            " Cost of Minecart: " + _vm._s(_vm.mincartcost.toFixed(2)) + " "
+          )
+        ]),
+        _vm._v(" "),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pt-2" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary float-right",
+            attrs: {
+              disabled: _vm.count < _vm.mincartcost ? "" : _vm.disabled
+            },
+            on: { click: _vm.minecartmining }
+          },
+          [_vm._v("Buy")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-100" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pt-2" }, [
+        _c("label", { staticClass: "mt-1 text-light" }, [
+          _vm._v(" Cost of Miner: " + _vm._s(_vm.minercost.toFixed(2)) + " ")
+        ]),
+        _vm._v(" "),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pt-2" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary float-right",
+            attrs: { disabled: _vm.count < _vm.minercost ? "" : _vm.disabled },
+            on: { click: _vm.minermining }
+          },
+          [_vm._v("Buy")]
+        )
+      ])
     ])
   ])
 }
@@ -37673,13 +37769,191 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "m-auto" }, [
-    _c("p", {}, [_vm._v(" Number of Picks " + _vm._s(_vm.pick))]),
+  return _c("div", { staticClass: "container" }, [
+    _vm._m(0),
     _vm._v(" "),
-    _c("p", [_vm._v(" Number of Minecarts " + _vm._s(_vm.minecart))])
+    _c("div", { staticClass: "m-auto" }, [
+      _c(
+        "p",
+        {
+          attrs: {
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: "Pick gain 1 coal per 10 secounds"
+          }
+        },
+        [
+          _vm._v(" Number of Picks " + _vm._s(_vm.pick) + " "),
+          _c(
+            "svg",
+            {
+              staticClass: "bi bi-question-circle",
+              attrs: {
+                width: "1em",
+                height: "1em",
+                viewBox: "0 0 16 16",
+                fill: "currentColor",
+                xmlns: "http://www.w3.org/2000/svg"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  "fill-rule": "evenodd",
+                  "data-placement": "top",
+                  title: "Pick gain 1 coal per 10 secounds",
+                  d:
+                    "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          attrs: {
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: "Minecart gain 1 coal per 1 secound"
+          }
+        },
+        [
+          _vm._v(" Number of Minecarts " + _vm._s(_vm.minecart) + "  "),
+          _c(
+            "svg",
+            {
+              staticClass: "bi bi-question-circle",
+              attrs: {
+                width: "1em",
+                height: "1em",
+                viewBox: "0 0 16 16",
+                fill: "currentColor",
+                xmlns: "http://www.w3.org/2000/svg"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  "fill-rule": "evenodd",
+                  "data-placement": "top",
+                  title: "Minecart gain 1 coal per 1 secound",
+                  d:
+                    "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          attrs: {
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: "Miner gain 20 coal per 1 secound"
+          }
+        },
+        [
+          _vm._v(" Number of Miners " + _vm._s(_vm.miner) + " "),
+          _c(
+            "svg",
+            {
+              staticClass: "bi bi-question-circle",
+              attrs: {
+                width: "1em",
+                height: "1em",
+                viewBox: "0 0 16 16",
+                fill: "currentColor",
+                xmlns: "http://www.w3.org/2000/svg"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  "fill-rule": "evenodd",
+                  "data-placement": "top",
+                  title: "Miner gain 20 coal per 1 secound",
+                  d:
+                    "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                }
+              })
+            ]
+          )
+        ]
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "loader" }, [
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -51280,7 +51554,10 @@ __webpack_require__.r(__webpack_exports__);
     pickvalue: 0.1,
     minecart: 0,
     mincartcost: 100,
-    minecartvalue: 1
+    minecartvalue: 1,
+    miner: 0,
+    minercost: 1000,
+    minervalue: 20
   },
   mutations: {
     increment: function increment(state) {
@@ -51308,6 +51585,16 @@ __webpack_require__.r(__webpack_exports__);
     buyminecart: function buyminecart(state) {
       state.count = state.count - state.mincartcost;
       state.mincartcost = state.mincartcost + state.mincartcost * 0.2;
+    },
+    minercounter: function minercounter(state) {
+      state.count = state.count + state.minervalue;
+    },
+    mincercart: function mincercart(state) {
+      state.miner++;
+    },
+    buyminer: function buyminer(state) {
+      state.count = state.count - state.minercost;
+      state.minercost = state.minercost + state.minercost * 0.2;
     }
   },
   actions: {
@@ -51325,6 +51612,14 @@ __webpack_require__.r(__webpack_exports__);
       context.commit('minecart');
       setInterval(function () {
         context.commit('minecartcounter');
+      }, 1000);
+    },
+    minermining: function minermining(context) {
+      context.commit('stop');
+      context.commit('buyminer');
+      context.commit('miner');
+      setInterval(function () {
+        context.commit('minercounter');
       }, 1000);
     }
   }
