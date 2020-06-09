@@ -26,6 +26,7 @@ import store from './store';
 
 Vue.component('counter', require('./components/Counter.vue').default);
 Vue.component('other', require('./components/Other.vue').default);
+Vue.component('storage', require('./components/Storage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
